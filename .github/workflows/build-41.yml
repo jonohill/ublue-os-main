@@ -8,9 +8,18 @@ on:
   push:
 
 jobs:
+
   build:
     name: build
     uses: ./.github/workflows/reusable-build.yml
     secrets: inherit
     with:
       fedora_version: 41
+
+  build_arm64:
+    name: build arm64
+    uses: ./.github/workflows/reusable-build.yml
+    secrets: inherit
+    with:
+      fedora_version: 41
+      runs_on: ubuntu-24.04-arm
